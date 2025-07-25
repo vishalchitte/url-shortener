@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # URL Shortener Assignment
 
 ## ✅ Project Overview
@@ -65,7 +64,7 @@ This is a simple **URL Shortener application** developed as part of Merito assig
 - No external frameworks for HttpServer
 
 ---
-=======
+
 # url-shortener
 This is a simple URL shortener application built using:
 
@@ -84,4 +83,3 @@ This is a simple URL shortener application built using:
 ## How to Run
 
 > Steps will be updated after development.
->>>>>>> 31f13829d32bbbe50c89c60a021a8a6e3e1cc83b
