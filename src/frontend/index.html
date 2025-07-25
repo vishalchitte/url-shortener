@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>URL Shortener</title>
+</head>
+<body>
+	<h2>Anonymous URL Shortener</h2>
+	<input type="text" id="originalUrl" placeholder="Enter long URL"
+		size="50">
+	<button onclick="shortenUrl()">Shorten</button>
+	<p id="result"></p>
+
+	<script>
+    function shortenUrl() {
+      const url = document.getElementById('originalUrl').value;
+
+      fetch('http://localhost:8080/shorten', {
+        method: 'POST',
+        body: url
+      })
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('result').innerText = data;
+      })
+      .catch(error => {
+        document.getElementById('result').innerText = 'Error: ' + error;
+      });
+    }
+  </script>
+</body>
+</html>

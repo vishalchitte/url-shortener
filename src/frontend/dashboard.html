@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom URL Shortener</title>
+</head>
+<body>
+  <h2>Custom URL Shortener (Logged-in Users)</h2>
+  <input type="text" id="username" placeholder="Username"><br>
+  <input type="text" id="originalUrl" placeholder="Original URL" size="50"><br>
+  <input type="text" id="customCode" placeholder="Custom Short Code"><br>
+  <button onclick="customShorten()">Create Custom Short URL</button>
+  <p id="result"></p>
+
+  <script>
+    function customShorten() {
+      const user = document.getElementById('username').value;
+      const url = document.getElementById('originalUrl').value;
+      const code = document.getElementById('customCode').value;
+      const data = user + '\n' + url + '\n' + code;
+
+      fetch('http://localhost:8080/custom-shorten', {
+        method: 'POST',
+        body: data
+      })
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('result').innerText = data;
+      })
+      .catch(error => {
+        document.getElementById('result').innerText = 'Error: ' + error;
+      });
+    }
+  </script>
+</body>
+</html>

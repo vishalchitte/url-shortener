@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register User</title>
+</head>
+<body>
+  <h2>User Registration</h2>
+  <input type="text" id="username" placeholder="Username"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <button onclick="register()">Register</button>
+  <p id="result"></p>
+
+<script>
+  function register() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    const data = user + '\n' + pass;
+
+    fetch('http://localhost:8080/register', {
+      method: 'POST',
+      body: data
+    })
+    .then(response => {
+      if (response.status === 200) {
+        // ✅ User registered successfully
+        return response.text().then(text => {
+          document.getElementById('result').style.color = 'green';
+          document.getElementById('result').innerText = text;
+        });
+      } else if (response.status === 409) {
+        // ⚠️ Username already exists
+        return response.text().then(text => {
+          document.getElementById('result').style.color = 'red';
+          document.getElementById('result').innerText = text;
+        });
+      } else {
+        // ⚠️ Other errors
+        return response.text().then(text => {
+          document.getElementById('result').style.color = 'red';
+          document.getElementById('result').innerText = 'Error: ' + text;
+        });
+      }
+    })
+    .catch(error => {
+      document.getElementById('result').style.color = 'red';
+      document.getElementById('result').innerText = 'Fetch Error: ' + error;
+    });
+  }
+</script>
+
+
+</body>
+</html>
