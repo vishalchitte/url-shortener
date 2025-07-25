@@ -83,3 +83,74 @@ This is a simple URL shortener application built using:
 ## How to Run
 
 > Steps will be updated after development.
+ How to Run
+Follow these steps to run the project locally:
+
+Clone the repository
+
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/url-shortener.git
+cd url-shortener
+Open the project in STS (Spring Tool Suite)
+
+File → Import → Existing Maven Project → Select this folder
+
+Build the project
+
+Right-click on the project → Maven → Update Project (or mvn clean install in terminal)
+
+Run the backend server
+
+Go to Main.java
+
+Right-click → Run As → Java Application
+
+Console should show:
+
+nginx
+Copy
+Edit
+Server started on port 8080
+Serve the frontend files
+
+Using VS Code Live Server:
+
+Open frontend folder
+
+Right-click index.html → Open with Live Server
+
+Access via http://localhost:5500/index.html
+
+Or using Python HTTP server:
+
+In terminal:
+
+bash
+Copy
+Edit
+cd src/frontend
+python -m http.server 5500
+Access via http://localhost:5500/index.html
+
+Test APIs with Postman (Optional)
+
+Send POST requests to:
+
+http://localhost:8080/register
+
+http://localhost:8080/login
+
+http://localhost:8080/shorten
+
+http://localhost:8080/custom-shorten
+
+✔ Ensure backend server is running while testing.
+
+ Final Notes
+Default backend runs on port 8080
+
+Frontend served via port 5500 (Live Server or Python)
+
+H2 database used (no external DB setup needed)
