@@ -53,7 +53,7 @@ This is a simple **URL Shortener application** developed as part of Merito assig
 ## ✅ Developer
 
 👤 **Your Name**  
-📧 your.email@example.com
+📧 vishalchitte9999@gmail.com
 
 ---
 
@@ -91,7 +91,7 @@ Clone the repository
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/url-shortener.git
+git clone https://github.com/vishalchitte9999@gmail/url-shortener.git
 cd url-shortener
 Open the project in STS (Spring Tool Suite)
 
